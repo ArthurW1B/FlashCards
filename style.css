@@ -1,0 +1,64 @@
+/* Estilo geral da página */
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f4f4f9;
+    margin: 0;
+}
+
+/* Container do cartão para o efeito 3D */
+.flashcard {
+    background-color: transparent;
+    width: 300px;
+    height: 200px;
+    perspective: 1000px; /* Define a profundidade do 3D */
+    cursor: pointer;
+}
+
+/* O "miolo" do cartão que vai girar */
+.flashcard-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.6s ease-in-out;
+    transform-style: preserve-3d;
+}
+
+/* O gatilho: Gira o cartão no hover (mouse) ou se tiver a classe 'flipped' (clique) */
+.flashcard:hover .flashcard-inner,
+.flashcard.flipped .flashcard-inner {
+    transform: rotateY(180deg);
+}
+
+/* Estilos comuns para a frente e para o verso */
+.flashcard-front, .flashcard-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden; /* Esconde o lado de trás do elemento quando ele gira */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Estilo específico da Frente */
+.flashcard-front {
+    background-color: #ffffff;
+    color: #333333;
+}
+
+/* Estilo específico do Verso */
+.flashcard-back {
+    background-color: #6c5ce7; /* Um roxo legal */
+    color: white;
+    transform: rotateY(180deg); /* O verso já começa virado de costas */
+}
