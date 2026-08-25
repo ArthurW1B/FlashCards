@@ -1,24 +1,34 @@
-/* Estilo geral da página */
+/* Estilo geral */
 body {
     font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 40px 20px;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    background-color: #f4f4f9;
-    margin: 0;
+    min-height: 100vh;
+    box-sizing: border-box;
 }
 
-/* Container do cartão para o efeito 3D */
+/* Layout em grade flexível para organizar os 5 cartões */
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    justify-content: center;
+    max-width: 1100px;
+}
+
+/* Estrutura 3D individual */
 .flashcard {
     background-color: transparent;
-    width: 300px;
-    height: 200px;
-    perspective: 1000px; /* Define a profundidade do 3D */
+    width: 280px;
+    height: 180px;
+    perspective: 1000px;
     cursor: pointer;
 }
 
-/* O "miolo" do cartão que vai girar */
 .flashcard-inner {
     position: relative;
     width: 100%;
@@ -28,37 +38,45 @@ body {
     transform-style: preserve-3d;
 }
 
-/* O gatilho: Gira o cartão no hover (mouse) ou se tiver a classe 'flipped' (clique) */
+/* Efeito ao passar o mouse ou ao clicar (mobile) */
 .flashcard:hover .flashcard-inner,
 .flashcard.flipped .flashcard-inner {
     transform: rotateY(180deg);
 }
 
-/* Estilos comuns para a frente e para o verso */
+/* Estilos de frente e verso */
 .flashcard-front, .flashcard-back {
     position: absolute;
     width: 100%;
     height: 100%;
-    backface-visibility: hidden; /* Esconde o lado de trás do elemento quando ele gira */
+    backface-visibility: hidden;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     border-radius: 12px;
-    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-    padding: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    padding: 15px;
     box-sizing: border-box;
 }
 
-/* Estilo específico da Frente */
 .flashcard-front {
     background-color: #ffffff;
-    color: #333333;
+    color: #2d3436;
+    border: 2px solid #dfe6e9;
 }
 
-/* Estilo específico do Verso */
+.flashcard-front h2 {
+    margin: 0 0 10px 0;
+    color: #0984e3;
+}
+
 .flashcard-back {
-    background-color: #6c5ce7; /* Um roxo legal */
-    color: white;
-    transform: rotateY(180deg); /* O verso já começa virado de costas */
+    background-color: #0984e3;
+    color: #ffffff;
+    transform: rotateY(180deg);
+}
+
+.flashcard-back h2 {
+    margin: 0 0 10px 0;
 }

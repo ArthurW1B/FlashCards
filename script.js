@@ -1,10 +1,9 @@
-// Seleciona todos os flashcards da página
+// Seleciona todos os 5 flashcards da página
 const flashcards = document.querySelectorAll('.flashcard');
 
-// Adiciona um evento de clique a cada um deles
+// Adiciona a funcionalidade de clique em cada um individualmente
 flashcards.forEach(card => {
     card.addEventListener('click', () => {
-        // Adiciona ou remove a classe 'flipped' quando clicado
         card.classList.toggle('flipped');
     });
 });
