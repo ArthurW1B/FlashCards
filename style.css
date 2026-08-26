@@ -1,3 +1,9 @@
+body { 
+  display: flex; 
+  flex-direction: column; 
+  min-height: 100vh; 
+} 
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -16,3 +22,33 @@
 .cartao-imagem {
     width: 100%;
 }
+
+.cabecalho { 
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center; 
+  padding: 15px 25px; 
+} 
+
+main { 
+  flex: 1; 
+} 
+
+.cabecalho { 
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center; 
+  padding: 15px 25px; 
+} 
+
+body { 
+  display: flex; 
+  flex-direction: column; 
+  min-height: 100vh; 
+} 
+
+main { 
+  flex: 1; 
+} 
+
+/* Outros estilos que você já tenha */
